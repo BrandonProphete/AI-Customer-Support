@@ -1,5 +1,5 @@
 'use client'
-import { Box, Button, Stack, TextField } from '@mui/material'
+import { Box, Button, Stack, TextField, Typography } from '@mui/material'
 import { useState, useEffect, useRef } from 'react'
 
 export default function Home() {
@@ -88,6 +88,8 @@ export default function Home() {
       alignItems="center"
       backgroundColor="var(--background-end-rgb)"
     >
+       <Typography variant="h2" style={{ marginTop: '-20px' }}>Old Navy Assistant</Typography>
+
       <Box className="phone-frame">
         <Stack
           direction={'column'}

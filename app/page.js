@@ -1,8 +1,12 @@
 'use client'
 import { Box, Button, Stack, TextField, Typography } from '@mui/material'
 import { useState, useEffect, useRef } from 'react'
+import { useTranslation } from 'react-i18next';
+import './i18n';
 
 export default function Home() {
+  const { t, i18n } = useTranslation();
+
   const [messages, setMessages] = useState([
     {
       role: 'assistant',
@@ -88,7 +92,7 @@ export default function Home() {
       alignItems="center"
       backgroundColor="var(--background-end-rgb)"
     >
-       <Typography variant="h2" style={{ marginTop: '-20px' }}>Old Navy Assistant</Typography>
+       <Typography variant="h2" style={{ marginTop: '-20px' }}>{t('title')}</Typography>
 
       <Box className="phone-frame">
         <Stack
@@ -156,6 +160,23 @@ export default function Home() {
           </Stack>
         </Stack>
       </Box>
+
+      <div className="absolute top-4 right-4 flex space-x-2 z-10"><button
+          onClick={() => i18n.changeLanguage('nl')}
+          title="Spainish"
+          className="p-2 bg-yellow-200 rounded-full shadow-md hover:bg-yellow-300 transition duration-300"
+        >
+          <img src="/flags/nl.svg" alt="Spainish" style={{width: '200px', height: '150px', top: '50%', left: '50%'}} />
+        </button>
+
+        <button
+          onClick={() => i18n.changeLanguage('en')}
+          title="English"
+          className="p-2 bg-red-200 rounded-full shadow-md hover:bg-red-300 transition duration-300"
+        >
+          <img src="/flags/En.svg" alt="English" style={{width: '200px', height: '150px', top: '50%', left: '50%', gap: 3}}  />
+        </button>
+        </div>
     </Box>
   )
 }
